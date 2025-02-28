@@ -1,0 +1,1 @@
+cc parse.c fund.c -o parser
