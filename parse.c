@@ -23,7 +23,6 @@ int main(int argc, char **argv)
 	FILE *fin;
 	char content[100000];
 	int ci=0;
-
 	char c;
 
 	if (argc==1){
@@ -239,22 +238,19 @@ unary = 0; endtag = 0; working = NULL;
 
 
 short isunary(char *str) {
-    // List of HTML tags that have no closing tags
     const char *self_closing_tags[] = {
         "area", "base", "br", "col", "embed", "hr", "img", "input", 
         "link", "meta", "param", "source", "track", "wbr"
     };
 
-    // Number of self-closing tags
+
     int num_tags = sizeof(self_closing_tags) / sizeof(self_closing_tags[0]);
 
-    // Iterate through the list of self-closing tags
     for (int i = 0; i < num_tags; i++) {
         if (strstr(str, self_closing_tags[i]) != NULL) {
             return 1;
         }
     }
 
-    // If the tag is not found in the list, return 0
     return 0;
 }
